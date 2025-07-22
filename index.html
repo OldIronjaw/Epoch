@@ -10,7 +10,7 @@
             padding: 0;
             height: 100%;
             overflow: hidden; /* Prevent scrolling */
-            background-color: #202020; /* Base color close to the image */
+            background-color: #202020; /* Match the image tone */
         }
         body {
             display: flex;
@@ -18,7 +18,7 @@
             align-items: center;
             height: 100vh;
             background: #202020 url('https://i.imgur.com/AFjKLGB.jpg') no-repeat center center;
-            background-size: 50% auto; /* Scale the image smaller */
+            background-size: 50% auto; /* Make the image smaller */
             background-attachment: fixed;
             color: #00FF00;
             font-family: 'Courier New', Courier, monospace;
@@ -28,16 +28,18 @@
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
+            z-index: 1;
         }
         #countdown {
             font-size: 2rem;
+            z-index: 1;
         }
     </style>
 </head>
 <body>
     <h1>Epog Launch Countdown</h1>
     <div id="countdown"></div>
-    <audio id="finalCountdown" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" autoplay loop></audio>
+    <audio id="finalCountdown" src="https://ia801001.us.archive.org/28/items/europe-the-final-countdown-official-video_202507/Europe%20-%20The%20Final%20Countdown%20%28Official%20Video%29.mp3" autoplay loop></audio>
 
     <script>
         const finalCountdownAudio = document.getElementById('finalCountdown');

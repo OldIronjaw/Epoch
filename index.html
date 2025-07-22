@@ -1,67 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epog Launch Countdown</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: black;
-            color: #00FF00;
-            font-family: 'Courier New', Courier, monospace;
-            text-align: center;
-            flex-direction: column;
+<script>
+    const finalCountdownAudio = document.getElementById('finalCountdown');
+    finalCountdownAudio.volume = 1.0;
+
+    // Play sound on page load
+    window.onload = () => {
+        finalCountdownAudio.play().catch(e => console.log("Audio play failed: ", e));
+    };
+
+    // Target date: July 26, 5 PM BST
+    const targetDate = new Date('July 26, 2025 17:00:00 GMT+0100').getTime();
+    const countdownElement = document.getElementById('countdown');
+
+    const countdownInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance <= 0) {
+            clearInterval(countdownInterval);
+            countdownElement.innerHTML = "It's Epog Launch Time!";
+            return;
         }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        #countdown {
-            font-size: 2rem;
-        }
-    </style>
-</head>
-<body>
-    <h1>Epog Launch Countdown</h1>
-    <div id="countdown"></div>
-    <audio id="finalCountdown" src="https://drive.google.com/uc?id=1aQHevzoODPigMqFvmkA1B8qEhgBlMaMS&export=download" loop></audio>
 
-    <script>
-        // Set volume to full
-        const finalCountdownAudio = document.getElementById('finalCountdown');
-        finalCountdownAudio.volume = 1.0;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Play sound when clicked
-        document.body.addEventListener('click', function() {
-            finalCountdownAudio.play();
-        });
+        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+</script>
 
-        // Target date: July 26, 5 PM BST
-        const targetDate = new Date('July 26, 2025 17:00:00 GMT+0100').getTime();
-        const countdownElement = document.getElementById('countdown');
-
-        const countdownInterval = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance <= 0) {
-                clearInterval(countdownInterval);
-                countdownElement.innerHTML = "It's Epog Launch Time!";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }, 1000);
-    </script>
-</body>
-</html>
 

@@ -13,11 +13,8 @@
             background-color: #202020;
         }
         body {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            position: relative;
             height: 100vh;
-            padding-top: 80px;
             background: #202020 url('https://i.imgur.com/AFjKLGB.jpg') no-repeat center center;
             background-size: 50% auto;
             background-attachment: fixed;
@@ -25,17 +22,6 @@
             font-family: 'Arial Black', 'Impact', sans-serif;
             text-align: center;
             flex-direction: column;
-        }
-        h1 {
-            font-size: 4rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px #000;
-        }
-        #countdown {
-            font-size: 2.5rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 5px #000;
         }
         #overlay {
             position: fixed;
@@ -51,6 +37,25 @@
             font-size: 2rem;
             z-index: 10;
             cursor: pointer;
+        }
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: absolute;
+            top: 15%;  /* Adjust vertical position */
+            left: 50%;
+            transform: translateX(-50%);  /* Center horizontally */
+            text-shadow: 2px 2px 5px #000;
+        }
+        #countdown {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px #000;
+            position: absolute;
+            top: 25%; /* Position countdown below title */
+            left: 50%;
+            transform: translateX(-50%);
         }
     </style>
 </head>
@@ -93,6 +98,7 @@
     </script>
 </body>
 </html>
+
 
 
 

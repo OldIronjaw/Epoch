@@ -28,12 +28,17 @@
 <body>
     <h1>Epog Launch Countdown</h1>
     <div id="countdown"></div>
-    <audio id="finalCountdown" src="https://drive.google.com/uc?id=1aQHevzoODPigMqFvmkA1B8qEhgBlMaMS&export=download" autoplay loop></audio>
+    <audio id="finalCountdown" src="https://drive.google.com/uc?id=1aQHevzoODPigMqFvmkA1B8qEhgBlMaMS&export=download" loop></audio>
 
     <script>
         // Set volume to full
         const finalCountdownAudio = document.getElementById('finalCountdown');
         finalCountdownAudio.volume = 1.0;
+
+        // Play sound when clicked
+        document.body.addEventListener('click', function() {
+            finalCountdownAudio.play();
+        });
 
         // Target date: July 26, 5 PM BST
         const targetDate = new Date('July 26, 2025 17:00:00 GMT+0100').getTime();

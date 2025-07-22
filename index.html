@@ -11,7 +11,7 @@
             align-items: center;
             height: 100vh;
             background: url('https://i.imgur.com/AFjKLGB.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background-size: 50% auto; /* Resize the image to 2x smaller */
             color: #00FF00;
             font-family: 'Courier New', Courier, monospace;
             text-align: center;
@@ -36,45 +36,6 @@
         }
 
         #countdown {
-            font-size: 2rem;
-        }
-    </style>
-</head>
-<body>
-    <h1>Epog Launch Countdown</h1>
-    <div id="countdown"></div>
-    <audio id="finalCountdown" src="https://drive.google.com/uc?id=1aQHevzoODPigMqFvmkA1B8qEhgBlMaMS&export=download" loop></audio>
 
-    <script>
-        const finalCountdownAudio = document.getElementById('finalCountdown');
-        finalCountdownAudio.volume = 1.0;
-
-        window.onload = () => {
-            finalCountdownAudio.play().catch(e => console.log("Audio play failed: ", e));
-        };
-
-        const targetDate = new Date('July 26, 2025 17:00:00 GMT+0100').getTime();
-        const countdownElement = document.getElementById('countdown');
-
-        const countdownInterval = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance <= 0) {
-                clearInterval(countdownInterval);
-                countdownElement.innerHTML = "It's Epog Launch Time!";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }, 1000);
-    </script>
-</body>
-</html>
 
 

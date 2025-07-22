@@ -10,29 +10,32 @@
             padding: 0;
             height: 100%;
             overflow: hidden; /* Prevent scrolling */
-            background-color: #202020; /* Match the image tone */
+            background-color: #202020; /* Match image tone */
         }
         body {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Push content higher */
+            padding-top: 50px; /* Adjust vertical position */
             height: 100vh;
             background: #202020 url('https://i.imgur.com/AFjKLGB.jpg') no-repeat center center;
-            background-size: 50% auto; /* Make the image smaller */
+            background-size: 50% auto;
             background-attachment: fixed;
-            color: #00FF00;
-            font-family: 'Courier New', Courier, monospace;
+            color: #FFD700; /* Bright gold for high visibility */
+            font-family: 'Arial Black', 'Impact', sans-serif;
             text-align: center;
             flex-direction: column;
         }
         h1 {
-            font-size: 3rem;
+            font-size: 4rem; /* Larger heading */
+            font-weight: bold;
             margin-bottom: 20px;
-            z-index: 1;
+            text-shadow: 2px 2px 5px #000; /* Shadow for readability */
         }
         #countdown {
-            font-size: 2rem;
-            z-index: 1;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px #000;
         }
     </style>
 </head>
